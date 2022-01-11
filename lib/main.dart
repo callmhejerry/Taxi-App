@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_app/Contants.dart';
+import 'Widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,8 +70,9 @@ class CheckOut extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(
-          horizontal: 15,
+        padding: EdgeInsets.only(
+          left: 18,
+          right: 18,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,85 +92,43 @@ class CheckOut extends StatelessWidget {
               height: 20,
             ),
             PayementGateWay(
-              PamentType: "MasterCard",
+              paymentType: "MasterCard",
+              image: "assets/Images/Master card.PNG",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            PayementGateWay(
+              paymentType: "Visa",
+              image: "assets/Images/Visa.PNG",
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              "Other methods",
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            PayementGateWay(
+              paymentType: "Mobile Transfer",
+              image: "assets/Images/Visa.PNG",
+            ),
+            Center(
+              child: Image.asset(
+                "assets/Images/Motions Logo.PNG",
+                filterQuality: FilterQuality.high,
+                width: 140,
+                height: 140,
+              ),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class FeeContainer extends StatelessWidget {
-  final String fee;
-  const FeeContainer({Key? key, required this.fee}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 91,
-      padding: EdgeInsets.symmetric(vertical: 8),
-      width: 369,
-      decoration: BoxDecoration(
-        color: kprimaryColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        children: [
-          Text(
-            fee,
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w500,
-              color: Colors.white,
-            ),
-          ),
-          Text(
-            "Bills to pay",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.w300,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class PayementGateWay extends StatelessWidget {
-  final String PamentType;
-  const PayementGateWay({Key? key, required this.PamentType}) : super(key: key);
-  bool card(String cardType) {
-    if (cardType == "MasterCard") {
-      return true;
-    }
-    return false;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 82,
-      width: 369,
-      child: Row(
-        children: [
-          card(PamentType)
-              ? Image.asset("assets/Images/Master card.PNG")
-              : Image.asset("assets/Images/Visa.PNG"),
-        ],
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0, 2),
-            blurRadius: 5.0,
-            color: Colors.black.withOpacity(0.17),
-          )
-        ],
-        color: Colors.white,
       ),
     );
   }

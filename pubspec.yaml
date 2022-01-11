@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/Images/Visa.PNG
     - assets/Images/Master card.PNG
+    - assets/Images/Motions Logo.PNG
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
