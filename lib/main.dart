@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taxi_app/Contants.dart';
-import 'package:taxi_app/Screens/AddCard.dart';
+// import 'package:taxi_app/Screens/AddCard.dart';
 import 'package:taxi_app/providers.dart';
+
+import 'Screens/History.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,20 +16,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MultiProvider(providers: [
-        ChangeNotifierProvider<CardProvider>(
-            create: (BuildContext context) => CardProvider())
-      ], child: AddCard()),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<CardProvider>(
+            create: (BuildContext context) => CardProvider(),
+          )
+        ],
+        child: History(),
+      ),
       title: "Taxi App",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: kprimaryColor,
-          fontFamily: "poppins",
-          backgroundColor: kbackgroundColor,
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-          )),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primaryColor: kprimaryColor,
+        fontFamily: "poppins",
+        backgroundColor: kbackgroundColor,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+      ),
     );
   }
 }
