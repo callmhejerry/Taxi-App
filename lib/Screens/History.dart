@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Contants.dart';
 import '../Widget.dart';
 
@@ -19,7 +20,7 @@ class History extends StatelessWidget {
           "History",
           style: TextStyle(
             color: kprimaryColor,
-            fontSize: 24,
+            fontSize: 24.sp,
             fontWeight: FontWeight.w500,
           ),
         ),

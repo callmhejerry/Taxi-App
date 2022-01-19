@@ -1,8 +1,11 @@
 // ignore_for_file: file_names, avoid_print, sized_box_for_whitespace
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:taxi_app/Contants.dart';
 import 'package:taxi_app/providers.dart';
+
+import '../Widget.dart';
 
 class AddCard extends StatelessWidget {
   const AddCard({
@@ -23,12 +26,12 @@ class AddCard extends StatelessWidget {
         ),
         title: RichText(
           text: TextSpan(
-            children: const [
+            children: [
               TextSpan(
                   text: "Add",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 22,
+                    fontSize: 22.sp,
                     fontWeight: FontWeight.w400,
                     fontFamily: 'poppins',
                   )),
@@ -36,7 +39,7 @@ class AddCard extends StatelessWidget {
                 text: "Card",
                 style: TextStyle(
                   color: kprimaryColor,
-                  fontSize: 22,
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.w600,
                   fontFamily: 'poppins',
                 ),
@@ -46,15 +49,18 @@ class AddCard extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        // keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        child: Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 40.w),
           child: Column(
             children: [
-              Card(
+              SizedBox(
+                height: 8.h,
+              ),
+              MotionCard(
                 paymentTypeImage: "assets/Images/Master card.PNG",
               ),
               SizedBox(
-                height: 20,
+                height: 49.h,
               ),
               Form(
                 child: Column(
@@ -64,26 +70,26 @@ class AddCard extends StatelessWidget {
                       "Full Name",
                       style: TextStyle(
                         color: kprimaryColor,
-                        fontSize: 13,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     SizedBox(
-                        width: 334.5,
-                        height: 32,
+                        width: 334.5.w,
+                        height: 40.h,
                         child: TextFormField(
                           controller: cardNameTextEditingController,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             fontFamily: 'poppins',
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
                           ),
                           onChanged:
                               Provider.of<CardProvider>(context, listen: false)
                                   .onChangeCardName,
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 18),
+                            // contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 18),
                             disabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: kbackgroundColor,
@@ -100,24 +106,24 @@ class AddCard extends StatelessWidget {
                             ),
                           ),
                         )),
-                    SizedBox(height: 15),
+                    SizedBox(height: 27.5.h),
                     Text(
                       "Card Number",
                       style: TextStyle(
                         color: kprimaryColor,
-                        fontSize: 13,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     SizedBox(
-                      width: 334.5,
-                      height: 32,
+                      width: 334.5.w,
+                      height: 40.h,
                       child: TextFormField(
                         controller: cardNumberTextEditingController,
                         style: TextStyle(
                           decoration: TextDecoration.none,
                           fontFamily: 'poppins',
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w600,
                         ),
                         keyboardType: TextInputType.number,
@@ -143,9 +149,9 @@ class AddCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 29.5.h),
                     SizedBox(
-                      width: 334.5,
+                      width: 334.5.w,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -156,18 +162,18 @@ class AddCard extends StatelessWidget {
                                 "Expiry Date",
                                 style: TextStyle(
                                   color: kprimaryColor,
-                                  fontSize: 13,
+                                  fontSize: 13.sp,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
                               SizedBox(
-                                width: 194.5,
-                                height: 32,
+                                width: 194.5.w,
+                                height: 40.h,
                                 child: TextFormField(
                                   style: TextStyle(
                                     decoration: TextDecoration.none,
                                     fontFamily: 'poppins',
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                     fontWeight: FontWeight.w600,
                                   ),
                                   keyboardType: TextInputType.number,
@@ -200,18 +206,18 @@ class AddCard extends StatelessWidget {
                                 "CVV",
                                 style: TextStyle(
                                   color: kprimaryColor,
-                                  fontSize: 13,
+                                  fontSize: 13.sp,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
                               SizedBox(
-                                width: 118,
-                                height: 32,
+                                width: 118.w,
+                                height: 40.h,
                                 child: TextFormField(
                                   style: TextStyle(
                                     decoration: TextDecoration.none,
                                     fontFamily: 'poppins',
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                     fontWeight: FontWeight.w600,
                                   ),
                                   keyboardType: TextInputType.number,
@@ -244,11 +250,11 @@ class AddCard extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 200,
+                height: 204.5.h,
               ),
               MaterialButton(
                 onPressed: () {},
-                height: 50,
+                height: 50.h,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -256,92 +262,21 @@ class AddCard extends StatelessWidget {
                   "Add card",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                minWidth: 315,
+                minWidth: 315.w,
                 color: kprimaryColor,
               ),
               SizedBox(
-                height: 40,
+                height: 40.h,
               )
             ],
           ),
         ),
       ),
       backgroundColor: kbackgroundColor,
-    );
-  }
-}
-
-class Card extends StatefulWidget {
-  final String paymentTypeImage;
-
-  const Card({Key? key, required this.paymentTypeImage}) : super(key: key);
-  @override
-  State<Card> createState() {
-    return _CardState();
-  }
-}
-
-class _CardState extends State<Card> {
-  @override
-  Widget build(BuildContext context) {
-    String cardName = Provider.of<CardProvider>(context).cardName;
-    String cardNumber = Provider.of<CardProvider>(context).cardNumber;
-    return Container(
-      height: 190,
-      width: 344,
-      padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-      decoration: BoxDecoration(
-        color: kbackgroundColor,
-        borderRadius: BorderRadius.circular(26),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 5,
-            color: Colors.black.withOpacity(0.17),
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset("assets/Images/Motions Logo.PNG",
-                  width: 100, height: 50),
-              Image.asset(
-                widget.paymentTypeImage,
-                height: 32,
-                width: 53,
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            cardName,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Text(
-            cardNumber,
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:taxi_app/Contants.dart';
-// import 'package:taxi_app/Screens/AddCard.dart';
+import './Screens/History.dart';
 import 'package:taxi_app/providers.dart';
 
-import 'Screens/History.dart';
+// import 'Screens/History.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,28 +14,32 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider<CardProvider>(
-            create: (BuildContext context) => CardProvider(),
-          )
-        ],
-        child: History(),
-      ),
-      title: "Taxi App",
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        primaryColor: kprimaryColor,
-        fontFamily: "poppins",
-        backgroundColor: kbackgroundColor,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+    return ScreenUtilInit(
+      designSize: Size(414, 896),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: () => MaterialApp(
+        title: "Taxi App",
+        debugShowCheckedModeBanner: false,
+        home: MultiProvider(
+          providers: [
+            ChangeNotifierProvider<CardProvider>(
+              create: (BuildContext context) => CardProvider(),
+            )
+          ],
+          child: History(),
+        ),
+        theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          primaryColor: kprimaryColor,
+          fontFamily: "poppins",
+          backgroundColor: kbackgroundColor,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
         ),
       ),
     );
