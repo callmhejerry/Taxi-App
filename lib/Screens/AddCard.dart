@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:taxi_app/Contants.dart';
-import 'package:taxi_app/providers.dart';
+import 'package:motions/Contants.dart';
+import 'package:motions/providers.dart';
 
 import '../Widget.dart';
 

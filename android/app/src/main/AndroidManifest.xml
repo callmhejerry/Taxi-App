@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.taxi_app">
    <application
-        android:label="taxi_app"
+        android:label="Motions"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -20,7 +20,9 @@
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
               />
-            <intent-filter>
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyB7iQp_Yozs7u7NajxEruRkanbW6wrwW08"/>
+               <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
