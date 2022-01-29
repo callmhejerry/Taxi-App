@@ -391,3 +391,149 @@ class _CardState extends State<MotionCard> {
     );
   }
 }
+
+class DestionationWindow extends StatefulWidget {
+  const DestionationWindow({Key? key}) : super(key: key);
+  @override
+  State<DestionationWindow> createState() {
+    return _DestinationWindowState();
+  }
+}
+
+class _DestinationWindowState extends State<DestionationWindow> {
+  String pickUp = 'De santos hotel, awka';
+  String dropOff = "Where to ?";
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 335.w,
+      padding: EdgeInsets.symmetric(horizontal: 21.w, vertical: 30.h),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              Container(
+                width: 10.w,
+                height: 10.w,
+                decoration: BoxDecoration(
+                  color: Color(0xff514BC3),
+                  shape: BoxShape.circle,
+                ),
+              ),
+              SizedBox(
+                height: 92.h,
+                child: VerticalDivider(
+                  color: kprimaryColor.withOpacity(.50),
+                  thickness: 1.3,
+                ),
+              ),
+              Container(
+                width: 10.w,
+                height: 10.w,
+                decoration: BoxDecoration(
+                  color: Color(0xff70B200),
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            width: 10.w,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'PICK UP',
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(.60),
+                    fontSize: 12,
+                  ),
+                ),
+                SizedBox(height: 5.h),
+                InkWell(
+                  child: Text(
+                    pickUp,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 24.5.h,
+                ),
+                Divider(
+                  color: kprimaryColor.withOpacity(.30),
+                  thickness: 1,
+                  height: 0,
+                ),
+                SizedBox(
+                  height: 23.5.h,
+                ),
+                Text(
+                  "DROP OFF",
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(.60),
+                    fontSize: 12,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    showSearch(context: context, delegate: LocationSearch());
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5.0.h),
+                    child: Text(
+                      dropOff,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
+        boxShadow: const [
+          BoxShadow(
+            color: kbackgroundColor,
+            blurRadius: 40,
+            offset: Offset(0, 25),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class LocationSearch extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return null;
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () => Navigator.pop(context), icon: Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return Text("sorry");
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return Text("Sorry");
+  }
+}
