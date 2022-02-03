@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:motions/Screens/AddCard.dart';
+import 'package:motions/Screens/Login.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:motions/Contants.dart';
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
               create: (BuildContext context) => CardProvider(),
             )
           ],
-          child: Home(),
+          child: AddCard(),
         ),
         theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,
