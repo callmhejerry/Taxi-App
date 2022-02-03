@@ -82,7 +82,10 @@ class _HomeState extends State<Home> {
                   function: () => Navigator.pop(context),
                 ),
                 SizedBox(height: 32.h),
-                drawerItem(icon: Icons.history, label: "Travel History"),
+                drawerItem(
+                    icon: Icons.history,
+                    label: "Travel History",
+                    function: () => Navigator.pop(context)),
                 SizedBox(height: 32.h),
                 drawerItem(icon: Icons.notifications, label: "Notifications"),
                 SizedBox(height: 32.h),
